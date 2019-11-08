@@ -1,4 +1,4 @@
-package chapter1_base;
+package chapter2_base;
 
 /**
  * 队列
