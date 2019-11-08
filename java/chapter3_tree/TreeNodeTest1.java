@@ -94,6 +94,17 @@ public class TreeNodeTest1 {
         }
     }
 
+    /**
+     * 非递归方式——中序遍历
+     * */
+    public static void inOrderTraveralWithStack(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode treeNode = root;
+        while (treeNode != null || !stack.isEmpty()) {
+
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList<Integer> inputList = new LinkedList<>(Arrays.asList(new Integer[]{3, 2, 9, null, null, 10, null, null, 8, null, 4}));
         TreeNode treeNode = createBinaryTree(inputList);
