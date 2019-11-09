@@ -2,6 +2,7 @@ package chapter3_tree;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class TreeNodeTest1 {
@@ -97,11 +98,29 @@ public class TreeNodeTest1 {
     /**
      * 非递归方式——中序遍历
      * */
-    public static void inOrderTraveralWithStack(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode treeNode = root;
-        while (treeNode != null || !stack.isEmpty()) {
+//    public static void inOrderTraveralWithStack(TreeNode root) {
+//        Stack<TreeNode> stack = new Stack<>();
+//        TreeNode treeNode = root;
+//        while (treeNode != null || !stack.isEmpty()) {
+//
+//        }
+//    }
 
+    /**
+     * 二叉树层序遍历
+     * */
+    public static void levelOrderTraversal(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            System.out.println(node.data);
+            if (node.leftChild != null) {
+                queue.offer(node.leftChild);
+            }
+            if (node.rightChild != null) {
+                queue.offer(node.rightChild);
+            }
         }
     }
 
@@ -119,5 +138,8 @@ public class TreeNodeTest1 {
         System.out.println("=======================");
         System.out.println("非递归方式先序遍历：");
         preOrderTraveralWithStack(treeNode);
+        System.out.println("=======================");
+        System.out.println("二叉树层序遍历：");
+        levelOrderTraversal(treeNode);
     }
 }
